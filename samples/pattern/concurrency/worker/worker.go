@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+// Each worker is a loop awaiting tasks from the job channel.
 func worker(id int, jobs <-chan int, results chan<- int) {
 	for j := range jobs {
 		fmt.Println("worker", id, "started  job", j)
@@ -21,15 +22,19 @@ func main() {
 	jobs := make(chan int, numJobs)
 	results := make(chan int, numJobs)
 
+	// Creating the workers.
 	for w := 1; w <= numWorkers; w++ {
 		go worker(w, jobs, results)
 	}
 
+	// Creating the jobs and pushing them into the jobs queue.
 	for j := 1; j <= numJobs; j++ {
 		jobs <- j
 	}
+	// Closing the jobs channel will inform workers that no more job is incoming.
 	close(jobs)
 
+	// Fetching the results.
 	for a := 1; a <= numJobs; a++ {
 		<-results
 	}

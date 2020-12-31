@@ -9,5 +9,5 @@ const (
 	// White is a color.
 	White Color = iota
 	// Black is a color.
-	Black
+	Black = 1
 )

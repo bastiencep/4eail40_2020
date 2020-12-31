@@ -12,13 +12,14 @@ func TestNewCartesian(t *testing.T) {
 }
 
 func TestCartesian_Coord(t *testing.T) {
+	// We have a piece in position x=1 and y=2
 	c := NewCartesian(1, 2)
 
 	tests := map[int]int{
 		0: 1,
 		1: 2,
 	}
-
+	//We compare test and want to see if we have the right coordinates
 	for n, want := range tests {
 		t.Run(string(rune(n)), func(t *testing.T) {
 			got, err := c.Coord(n)
@@ -41,6 +42,12 @@ func TestCartesian_Coord(t *testing.T) {
 }
 
 func TestCartesian_String(t *testing.T) {
+	
+	type fields struct {
+		x int
+		y int
+	}
+	
 	tests := []struct {
 		name string
 		c    Cartesian
@@ -60,6 +67,12 @@ func TestCartesian_String(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
+			
+			c := Cartesian{
+				x: tt.fields.x,
+				y: tt.fields.y,
+			}
+			
 			if got := tt.c.String(); got != tt.want {
 				t.Errorf("Cartesian.String() = %v, want %v", got, tt.want)
 			}

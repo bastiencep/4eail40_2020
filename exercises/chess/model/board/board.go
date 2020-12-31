@@ -30,7 +30,7 @@ func (c *Classic) PieceAt(at coord.ChessCoordinates) piece.Piece {
 // Returns an error if destination was occupied.
 func (c *Classic) MovePiece(from coord.ChessCoordinates, to coord.ChessCoordinates) error {
 	//panic("not implemented") // TODO: Implement
-		if c.PieceAt(from) == nil {
+	if c.PieceAt(from) == nil {
 		return fmt.Errorf("No piece at %v", from.String())
 	} else {
 		x, _ := from.Coord(0)

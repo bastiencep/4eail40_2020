@@ -16,3 +16,7 @@ type Piece interface {
 	// Moves returns a set of valid move.
 	Moves(isCapture bool) map[coord.ChessCoordinates]bool
 }
+
+func test() {
+
+}

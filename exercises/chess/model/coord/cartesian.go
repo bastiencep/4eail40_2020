@@ -19,9 +19,9 @@ func (c Cartesian) Coord(n int) (int, error) {
 		return c.x, nil
 	case 1:
 		return c.y, nil
-
+	default:
+		return 0, fmt.Errorf("unknown coord component %d", n)
 	}
-	return 0, fmt.Errorf("unknown coord component %d", n)
 }
 
 func (c Cartesian) String() string {

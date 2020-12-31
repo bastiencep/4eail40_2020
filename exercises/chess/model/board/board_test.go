@@ -2,6 +2,7 @@ package board
 
 import (
 	"testing"
+	"reflect"
 
 	"github.com/jglouis/4eail40_2020/exercises/chess/model/coord"
 	"github.com/jglouis/4eail40_2020/exercises/chess/model/piece"

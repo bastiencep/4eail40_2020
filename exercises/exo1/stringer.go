@@ -32,8 +32,5 @@ func main() {
 
 	for _, s := range shapes {
 		fmt.Println(s)
-		// Expected output:
-		// Square of width 2 and length 3
-		// Circle of radius 5
 	}
 }
